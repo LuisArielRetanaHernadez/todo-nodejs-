@@ -34,8 +34,6 @@ exports.updateTodo = catchAsync(async (req, res, next) => {
     const { id } = req.params
     const { content } = req.body 
 
-    console.log('COOOONTEDIOOOOOOOOO >>>>>>> ',content, ' id >> ', id, ' body: ', req.body)
-
     const todo = await Todo.findOne({ where: { id }})
 
     if(!todo && content) {return next(new AppError('error al actualizar tarea'),404)}
